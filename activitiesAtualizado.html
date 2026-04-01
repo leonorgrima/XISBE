@@ -66,6 +66,13 @@
         p {
             line-height: 1.5;
         }
+
+        .activity-target-highlight {
+            outline: 4px solid #FF9114;
+            outline-offset: 6px;
+            border-radius: 8px;
+            transition: outline-color 0.4s ease;
+        }
         
         /* media querie menos de 600 px.
         a ideia é meter a organização vertical em vez de horizontal, eles tinham as imagens a 300 px. não dava para ter isso + texto
@@ -673,6 +680,71 @@ In 2018, I transitioned to healthcare management, joining the SPMS Procurement D
 <div id="footer-placeholder"></div>
 
 <script>
+    function normalizeText(value) {
+        return (value || "")
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, ' ')
+            .trim();
+    }
+
+    function getActivityAliases() {
+        return {
+            'the future of plastic': 'the future of plastics bioplastics from organic waste as a sustainable alternative',
+            'surgeons of tomorrow robotics': 'surgeons of tomorrow how robotics is shaping the future of surgery',
+            'beyond donors 3d printing': 'beyond donors how 3d printing is creating a new world for transplants',
+            'neuroscience and regenerations': 'neuroscience and regenerations new horizons in brain healing',
+            'from lab to patient': 'from lab to patient how drug delivery and immunoengineering are shaping modern medicine',
+            'feeding the future gmo debate': 'debate',
+            'alumni session': 'alumni',
+            'think connect control': 'think connect control unlocking neural computer interfaces',
+            'tease your thesis': 'workshops',
+            'film session henrietta lacks': 'workshops',
+            'lisbon biomechanics lab': 'workshops',
+            'job fair': 'alumni',
+            'pitch the glintter world': 'workshops',
+            'pitch fit at deloitte': 'workshops',
+            'pitch fermentation industry': 'workshops',
+            'coffee break': 'opening and closing sessions',
+            'barbecue': 'workshops'
+        };
+    }
+
+    function resolveActivityTarget(activityName) {
+        const normalizedActivity = normalizeText(activityName);
+        const aliases = getActivityAliases();
+        const searchTerms = [normalizedActivity];
+
+        if (aliases[normalizedActivity]) {
+            searchTerms.push(aliases[normalizedActivity]);
+        }
+
+        const headings = Array.from(document.querySelectorAll('h1.main-title, h2'));
+
+        return headings.find((heading) => {
+            const normalizedHeading = normalizeText(heading.textContent);
+            return searchTerms.some((term) => normalizedHeading.includes(term) || term.includes(normalizedHeading));
+        });
+    }
+
+    function navigateToActivityFromQuery() {
+        const params = new URLSearchParams(window.location.search);
+        const activity = params.get('activity');
+
+        if (!activity) {
+            return;
+        }
+
+        const target = resolveActivityTarget(activity);
+
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.classList.add('activity-target-highlight');
+            setTimeout(() => target.classList.remove('activity-target-highlight'), 2600);
+        }
+    }
+
     function loadPartial(file, target) {
         fetch(file)
             .then(response => {
@@ -695,7 +767,10 @@ In 2018, I transitioned to healthcare management, joining the SPMS Procurement D
           container.innerHTML = ""; 
           const fragment = document.createRange().createContextualFragment(data);
           container.appendChild(fragment);
-        })
+                });
+
+        navigateToActivityFromQuery();
+
     // Carregar o Footer
     loadPartial('footer.html', 'footer-placeholder');
 </script>

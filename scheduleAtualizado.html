@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule - X SBE</title>
     <style>
+        :root {
+            --bg-start: #FFF6E8;
+            --bg-mid: #FFE3D6;
+            --bg-end: #E6ECFF;
+            --surface-glass: rgba(255, 255, 255, 0.6);
+            --surface-glass-border: rgba(255, 255, 255, 0.7);
+            --event-primary: #F59E0B;
+            --event-hover: #EA580C;
+            --event-selected: #6366F1;
+            --event-text: #FFFFFF;
+            --weekday-header-collapsed: #E6A96B;
+            --weekday-header-expanded: #CFC3B8;
+        }
         
         html, body { height: 100%; margin: 0; padding: 0; }
         body {
             display: flex; flex-direction: column; min-height: 100vh;
-            background-image: url('assets/images/background.png'); font-family: sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 52%, var(--bg-end) 100%);
+            background-attachment: fixed;
+            font-family: sans-serif;
         }
         main { flex: 1; width: 100%; }
         
@@ -33,28 +48,48 @@
                 width: 1200px !important;
                 border-radius: 15px;
                 clip-path: inset(0 round 15px);
-                border: 2px solid #fff;
-                background-color: #fff;
+                border: 1px solid var(--surface-glass-border);
+                background-color: var(--surface-glass);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
                 grid-gap: 2px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 14px 38px rgba(234, 88, 12, 0.12);
             }
 
-            .calendar-empty-space { background-color: #e5e5bc; }
+            .calendar-empty-space { background-color: rgba(255, 255, 255, 0.42); }
 
             .header1 {
-                background-image: url('assets/images/background.png') !important;
-                color: #333; font-size: 22px !important; font-weight: bold;
+                background: var(--weekday-header-collapsed);
+                color: #fff; font-size: 22px !important; font-weight: bold;
                 display: flex; justify-content: center; align-items: center;
                 grid-row: 1; z-index: 5;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+                transition: background-color 180ms ease;
             }
 
             .activity-card {
                 display: flex; flex-direction: column; align-items: center;
                 justify-content: center; text-align: center; line-height: 1.1;
                 padding: 4px; box-sizing: border-box; z-index: 10;
-                cursor: pointer; transition: transform 0.1s ease;
+                cursor: pointer;
+                border-radius: 12px;
+                background-color: var(--event-primary);
+                color: var(--event-text);
+                box-shadow: 0 8px 18px rgba(245, 158, 11, 0.28);
+                transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
             }
-            .activity-card:hover { transform: scale(1.02); }
+            .activity-card:hover {
+                transform: translateY(-1px);
+                filter: brightness(0.93);
+                box-shadow: 0 12px 24px rgba(234, 88, 12, 0.3);
+            }
+            .activity-card:focus-visible,
+            .activity-card:active,
+            .activity-card.selected {
+                outline: none;
+                background-color: var(--event-selected);
+                box-shadow: 0 12px 24px rgba(99, 102, 241, 0.32);
+            }
             .activity-card strong { font-size: 13px; margin-bottom: 2px; }
             .activity-card small { font-size: 11px; }
 
@@ -82,16 +117,24 @@
             }
 
             .header1 {
-                background-color: #055B61; color: white; padding: 18px;
+                background: var(--weekday-header-collapsed);
+                color: #fff; padding: 18px;
                 border-radius: 10px; cursor: pointer; font-size: 18px;
                 display: flex; justify-content: space-between; align-items: center;
                 width: 100%; 
                 box-sizing: border-box;
+                border: 1px solid rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                transition: background-color 180ms ease;
             }
             
             .header1::after { content: '▼'; font-size: 12px; transition: transform 0.3s; }
             .header1.active::after { transform: rotate(180deg); }
-            .header1.active { background-color: #FF9114; }
+            .header1.active {
+                background: var(--weekday-header-expanded);
+                color: #fff;
+            }
 
             .day-content { 
                 display: none; 
@@ -108,10 +151,11 @@
                 width: 100% !important; 
                 border-radius: 12px; 
                 padding: 15px !important;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.08); 
+                box-shadow: 0 8px 18px rgba(245, 158, 11, 0.24);
                 text-align: left;
                 box-sizing: border-box; 
-                background-color: #fff;
+                background-color: var(--event-primary);
+                color: var(--event-text);
 
             }
 
@@ -122,11 +166,17 @@
 
         @media (max-width: 360px) {
         .header1 {
-                background-color: #055B61; color: white; padding: 18px;
+            background: var(--weekday-header-collapsed);
+            color: #fff;
+            padding: 18px;
                 border-radius: 10px; cursor: pointer; font-size: 18px;
                 display: flex; justify-content: space-between; align-items: center;
                 width: 100%; 
                 box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: background-color 180ms ease;
             }
 
             .qr-section img{
@@ -140,6 +190,24 @@
         .close { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; }
         
         .qr-section { text-align: center; padding: 40px 20px; }
+
+        .download-btn {
+            background: linear-gradient(90deg, #F59E0B, #EA580C);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 22px rgba(234, 88, 12, 0.28);
+        }
     </style>
 </head>
 <body>
@@ -155,7 +223,7 @@
             <div><strong>To download this schedule, read this QR Code:</strong></div>
             <img src="scheduleqr.png" style="margin: 20px 0;">
             <div><strong>OR</strong></div>
-            <button onclick="window.location.href='Schedule X SBE.ics'" style="background-color: #055B61; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; margin-top: 20px; font-weight: bold;">
+            <button class="download-btn" onclick="window.location.href='Schedule X SBE.ics'">
                 Click Here
             </button>
         </div>
@@ -198,13 +266,21 @@
             { startTime: '13:00', endTime: '13:30', sex: { activity: 'Closing Session', color: '#44c0c0', position: 'full', fontColor: 'white', room: 'V02.1' } }
         ];
 
+        const eventColorPalette = ['#F6B756', '#F79A4A', '#F46D6D', '#8C73E6', '#6F7AE6', '#3BB3C3'];
+
         const timeToRow = (time) => {
             const [h, m] = time.split(':').map(Number);
             return ((h - 9) * 2) + (m === 30 ? 1 : 0) - 1 + 2;
         };
 
+        function openActivityPage(activityName) {
+            const targetUrl = `activitiesAtualizado.html?activity=${encodeURIComponent(activityName)}`;
+            window.location.href = targetUrl;
+        }
+
         function gerarCalendario() {
             const calendar = document.getElementById('calendarGrid');
+            let eventColorCursor = 0;
             const dias = [
                 { id: 'seg', label: 'Monday', col: "1" },
                 { id: 'ter', label: 'Tuesday', col: "2" },
@@ -242,9 +318,12 @@
                     if (dayKey) {
                         const act = item[dayKey];
                         const card = document.createElement('div');
+                        const cardColor = eventColorPalette[eventColorCursor % eventColorPalette.length];
+                        eventColorCursor += 1;
                         card.className = 'activity-card';
-                        card.style.backgroundColor = act.color;
-                        card.style.color = act.fontColor;
+                        card.setAttribute('tabindex', '0');
+                        card.style.backgroundColor = cardColor;
+                        card.style.color = '#FFFFFF';
                         if (window.innerWidth <= 1024){
                             card.innerHTML = `
                                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;">
@@ -258,7 +337,16 @@
 
                         card.onclick = (e) => {
                             e.stopPropagation();
-                            if (act.description) mostrarInfo(act.activity, item.startTime + ' - ' + item.endTime, act.room, act.description);
+                            document.querySelectorAll('.activity-card.selected').forEach(el => el.classList.remove('selected'));
+                            card.classList.add('selected');
+                            setTimeout(() => openActivityPage(act.activity), 120);
+                        };
+
+                        card.onkeydown = (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                card.click();
+                            }
                         };
 
                         if (window.innerWidth > 1024) {
