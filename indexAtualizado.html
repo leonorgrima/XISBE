@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -15,7 +14,7 @@
       margin: 0;
       padding: 0;
       font-family: "Jaapokki Subtract", sans-serif;
-      background-image: url("assets/images/background.png");
+      background-image: url("assets/images/Background.png");
       background-size: cover;
       background-position: center;
       color: #333;
@@ -39,7 +38,7 @@
       font-weight: bolder;
       font-family: Copperplate, fantasy;
       text-transform: uppercase;
-      background: url("assets/images/background.png") 50% 50%;
+      background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
@@ -64,7 +63,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      background: url("assets/images/background.png") 50% 50%;
+      background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
@@ -122,7 +121,7 @@
       font-weight: bolder;
       font-family: Copperplate, fantasy;
       text-transform: uppercase;
-      background: url("assets/images/background.png") 50% 50%;
+      background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
@@ -153,7 +152,9 @@
       font-size: 80px;
       font-weight: bolder;
       font-family: Copperplate, fantasy;
-      color: #055b61;
+      background: url("assets/images/Background.png") center/cover;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin: 0;
     }
     
@@ -276,9 +277,13 @@
     .perguntas-about-us {
       font-size: 18px;
       font-weight: 700;
-      color: #055b61;
       font-family: Copperplate, fantasy;
+        background: url("assets/images/Background.png") center/cover;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
+  
     .pergunta-who-texto:hover span,
     .pergunta-what-texto:hover span,
     .pergunta-where-texto:hover span {
@@ -461,7 +466,7 @@
     height: auto;
     pointer-events: none;
   }
- 
+
 }
   </style>
   <body>    
@@ -492,14 +497,15 @@
           </div>
         </section>
       </div>
-      <div style="height: 330px">
-        <img
-          src="assets/images/banner.png"
-          alt=""
-          style="width: 100%; height: 100%"
-        />
-      </div>
-    </div>
+      <div class="banner-container" style="width: 100%; overflow: hidden;">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/images/Banner_mobile.png" type="image/png">
+          <img src="assets/images/Banner_desktop.png" 
+            alt="SBE Banner" 
+            style="width: 100%; height: auto; display: block; object-fit: cover;">
+    </picture>
+  </div>
+</div>
     <div class="about-us-main">
       <div class="about-us-texto">
         <p>ABOUT US</p>
@@ -510,8 +516,9 @@
             <div class="logo-about-us">
               <img
                 class="imagem-logo-about-us"
-                src="assets/images/logoescuro.png"
+                src="assets/images/Logo.png"
                 alt="SBE Semana da Bioengenharia"
+                style="filter: brightness(0) saturate(100%); width: 80%; height: 80%; object-fit: contain;"
               />
             </div>
             <div class="sec-about-us">
@@ -622,7 +629,7 @@
       
       function updateCountdown() {
         
-        const eventDate = new Date("February 17, 2025 10:30:00").getTime();
+        const eventDate = new Date("May 4, 2026 23:59:59").getTime();
         
         const now = new Date().getTime();
         const timeLeft = eventDate - now;
@@ -655,3 +662,4 @@
     </script>
   </body>
 </html>
+
