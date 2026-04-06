@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>X SBE - Semana da Bioengenharia</title>
-    <link rel="stylesheet" href="assets/css/website.css" /> 
-    
+    <link rel="stylesheet" href="assets/css/website.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
   </head>
-  
+
   <style>
     body {
       height: 100%;
@@ -30,13 +32,13 @@
       background-color: white;
       top: 100px;
     }
-    
+
     .join-us {
       width: 500px;
       font-size: 100px;
       position: absolute;
       font-weight: bolder;
-      font-family: Copperplate, fantasy;
+      font-family: fantasy, Copperplate;
       text-transform: uppercase;
       background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
@@ -44,7 +46,7 @@
       -webkit-background-clip: text;
       text-align: center;
     }
-    
+
     .join-us span {
       display: block;
     }
@@ -75,16 +77,16 @@
     .countdown div p {
       font-size: 42px;
       font-weight: bolder;
-      font-family: Copperplate, fantasy;
+      font-family: fantasy, Copperplate;
       text-transform: uppercase;
     }
     .countdown div span {
       font-size: 84px;
       font-weight: bolder;
-      font-family: Copperplate, fantasy;
+      font-family: fantasy, Copperplate;
       text-transform: uppercase;
     }
-    
+
     .countdown-1,
     .countdown-2,
     .countdown-3,
@@ -92,7 +94,7 @@
       justify-content: center;
       align-items: center;
     }
-    
+
     .countdown span {
       font-size: 2rem;
       font-weight: bold;
@@ -119,7 +121,7 @@
       font-size: 100px;
       position: absolute;
       font-weight: bolder;
-      font-family: Copperplate, fantasy;
+      font-family: fantasy, Copperplate;
       text-transform: uppercase;
       background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
@@ -130,7 +132,7 @@
     .join-us span {
       display: block;
     }
-    
+
     .about-us-main {
       height: auto;
       display: flex;
@@ -151,13 +153,13 @@
     .meet-the-team p {
       font-size: 80px;
       font-weight: bolder;
-      font-family: Copperplate, fantasy;
+      font-family: fantasy, Copperplate;
       background: url("assets/images/Background.png") center/cover;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
     }
-    
+
     .x-sbe-caixa {
       height: auto;
     }
@@ -175,7 +177,7 @@
       margin: 10px 0;
       line-height: 25px;
     }
-    
+
     .logo-e-texto-about-us {
       background-color: white;
       display: flex;
@@ -251,7 +253,7 @@
     .pergunta-what-texto p {
       margin: 10px;
     }
-    
+
     .pergunta-where-main {
       display: flex;
       justify-content: center;
@@ -277,13 +279,13 @@
     .perguntas-about-us {
       font-size: 18px;
       font-weight: 700;
-      font-family: Copperplate, fantasy;
+      font-family: fantasy, Copperplate;
         background: url("assets/images/Background.png") center/cover;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
     }
-  
+
     .pergunta-who-texto:hover span,
     .pergunta-what-texto:hover span,
     .pergunta-where-texto:hover span {
@@ -318,7 +320,7 @@
       font-size: 85px;
       transition: color, font-size 0.7s;
     }
-    
+
     #header-container,
     #footer-container {
       width: 100%;
@@ -330,20 +332,20 @@
       top: 0;
       z-index: 1000;
     }
-    
-  
- 
+
+
+
 @media (max-width: 1200px) {
   .sec-countdown{
-    position: static;  
+    position: static;
     top: auto;
-    flex-direction: column;   
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0; 
+    gap: 0;
   }
   .join-us {
-    position: static; 
+    position: static;
     font-size: 12vw;
     margin-bottom: 0;
     width: 100% !important;
@@ -353,21 +355,16 @@
     flex-direction: row !important;
   }
   .countdown div span{
-    font-size: 15vw;                 
+    font-size: 15vw;
     line-height: 1;
   }
   .countdown div p{
-    font-size: 5vw;                 
-    margin: 0;                       
-  }
-  .about-us-texto p,
-  .atividades p,
-  .meet-the-team p {
-    font-size: 35px;
+    font-size: 5vw;
+    margin: 0;
   }
   .about-us{
     height: auto !important;
-    align-items: flex-start !important; 
+    align-items: flex-start !important;
     padding: 15px 0 !important;
   }
   .logo-e-texto-about-us:hover{
@@ -377,9 +374,9 @@
   }
   .logo-e-texto-about-us{
   display: flex;
-  align-items: flex-start; 
-  height: auto;            
-  pointer-events: none;  
+  align-items: flex-start;
+  height: auto;
+  pointer-events: none;
   }
   .sec-about-us,
   .pergunta-who-texto,
@@ -392,75 +389,9 @@
   .pergunta-what-texto {
     width: 65% !important;
     height: auto !important;
-    pointer-events: none; 
-  }
- 
-  .pergunta-where-texto{
-    width: 80%;
-    height: auto;
     pointer-events: none;
   }
- 
-}
-    
-@media (max-width: 768px) {
-  .sec-countdown{
-    position: static;  
-    top: auto;
-    flex-direction: column;   
-    align-items: center;
-    justify-content: center;
-    gap: 0; 
-  }
-  .join-us {
-    position: static; 
-    margin-bottom: 0;
-    width: 100% !important;
-  }
-  .countdown {
-    flex-direction: row !important;
-  }
-  .countdown div span{              
-    line-height: 1;
-  }
-  .countdown div p{                 
-    margin: 0;                       
-  }
-  .about-us-texto p,
-  .atividades p,
-  .meet-the-team p {
-    font-size: 25px;
-  }
-  .about-us{
-    height: auto !important;
-    align-items: flex-start !important; 
-    padding: 15px 0 !important;
-  }
-  .logo-e-texto-about-us:hover{
-    height: auto !important;
-    transition: none !important;
-    box-shadow: 2px 2px 20px rgba(0,0,0,.5) !important;
-  }
-  .logo-e-texto-about-us{
-  display: flex;
-  align-items: flex-start; 
-  height: auto;            
-  pointer-events: none;  
-  }
-  .sec-about-us,
-  .pergunta-who-texto,
-  .pergunta-what-texto,
-  .pergunta-where-texto {
-    padding-top: 0 !important;
-    font-size: 14px !important;
-  }
-  .pergunta-who-texto,
-  .pergunta-what-texto {
-    width: 65% !important;
-    height: auto !important;
-    pointer-events: none; 
-  }
- 
+
   .pergunta-where-texto{
     width: 80%;
     height: auto;
@@ -468,8 +399,118 @@
   }
 
 }
+
+@media (max-width: 768px) {
+  /* Fix font on mobile */
+  body {
+    font-family: "Jaapokki Subtract", sans-serif;
+  }
+
+  .about-us-texto p,
+  .atividades p,
+  .meet-the-team p {
+    font-size: 16vw;
+  }
+
+  .sec-countdown{
+    position: static;
+    top: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .join-us {
+    position: static;
+    margin-bottom: 0;
+    width: 100% !important;
+  }
+  .countdown {
+    flex-direction: row !important;
+  }
+  .countdown div span{
+    line-height: 1;
+  }
+  .countdown div p{
+    margin: 0;
+  }
+
+  /* Logo above text */
+  .about-us {
+    height: auto !important;
+    align-items: flex-start !important;
+    padding: 15px 0 !important;
+  }
+  .logo-e-texto-about-us {
+    flex-direction: column !important;
+    align-items: center !important;
+    height: auto !important;
+    width: 90% !important;
+    pointer-events: none;
+  }
+  .logo-e-texto-about-us:hover {
+    height: auto !important;
+    width: 90% !important;
+    transition: none !important;
+    box-shadow: 2px 2px 20px rgba(0,0,0,.5) !important;
+  }
+  .logo-about-us {
+    width: 100%;
+    padding: 15px 0 5px 0;
+  }
+  .imagem-logo-about-us {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: 55% !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+  .sec-about-us {
+    width: 100%;
+    padding: 0 0 15px 0 !important;
+    font-size: 14px !important;
+  }
+  .sec-about-us div {
+    width: 85%;
+  }
+
+  /* Who / What stacked vertically */
+  .perguntas-who-what {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px;
+    padding: 15px 0;
+  }
+  .pergunta-who,
+  .pergunta-what {
+    width: 100%;
+    flex: unset;
+    justify-content: center;
+  }
+  .pergunta-who-texto,
+  .pergunta-what-texto {
+    width: 80% !important;
+    height: auto !important;
+    pointer-events: none;
+    font-size: 14px !important;
+    padding-top: 0 !important;
+  }
+
+  /* Where */
+  .pergunta-where-main {
+    height: auto;
+    padding: 0 0 15px 0;
+  }
+  .pergunta-where-texto {
+    width: 80% !important;
+    height: auto !important;
+    font-size: 14px !important;
+    pointer-events: none;
+    padding-top: 0 !important;
+  }
+}
   </style>
-  <body>    
+  <body>
     <div id="header-container"></div>
     <div class="countdown-e-banner">
       <div class="sec-countdown">
@@ -500,8 +541,8 @@
       <div class="banner-container" style="width: 100%; overflow: hidden;">
         <picture>
           <source media="(max-width: 768px)" srcset="assets/images/Banner_mobile.png" type="image/png">
-          <img src="assets/images/Banner_desktop.png" 
-            alt="SBE Banner" 
+          <img src="assets/images/Banner_desktop.png"
+            alt="SBE Banner"
             style="width: 100%; height: auto; display: block; object-fit: cover;">
     </picture>
   </div>
@@ -602,63 +643,61 @@
     </div>
     <div id="footer-container"></div>
 
-    <script>      
-      fetch("headerAtualizado.html")        
+    <script>
+      fetch("headerAtualizado.html")
         .then((response) => response.text())
         .then((data) => {
-          
+
           const container = document.getElementById("header-container");
-    
+
           // Limpa o que lá estiver antes
-          container.innerHTML = ""; 
+          container.innerHTML = "";
           // Cria um "fragmento" que processa o HTML e EXECUTA os scripts
           const fragment = document.createRange().createContextualFragment(data);
-          
+
           // Insere o fragmento no container
           container.appendChild(fragment);
         })
-      
-      
+
+
       fetch("footer.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("footer-container").innerHTML = data;
         })
         .catch((error) => console.error("Error loading header:", error));
-      
-      
+
+
       function updateCountdown() {
-        
+
         const eventDate = new Date("May 4, 2026 23:59:59").getTime();
-        
+
         const now = new Date().getTime();
         const timeLeft = eventDate - now;
-        
+
         if (timeLeft <= 0) {
         document.getElementById("days").textContent = 0;
         document.getElementById("hours").textContent = 0;
         document.getElementById("minutes").textContent = 0;
         document.getElementById("seconds").textContent = 0;
-        return; // Comentário do ano passado: Stop the countdown from updating further
+        return;
         }
-        
+
         const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
           (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-        
+
         document.getElementById("days").textContent = days;
         document.getElementById("hours").textContent = hours;
         document.getElementById("minutes").textContent = minutes;
         document.getElementById("seconds").textContent = seconds;
       }
-      
-      
-      //Comentário do ano passado: Atualizar o countdown a cada segundo
+
       setInterval(updateCountdown, 1000);
-      
+
     </script>
   </body>
 </html>
