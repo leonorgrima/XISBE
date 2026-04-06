@@ -1,32 +1,24 @@
-<!--Este é o documento da página principal-->
-<!--Neste documento, os comentários mais importantes são sobre Javascript, estão no final do
-    ficheiro.-->
-
 <!DOCTYPE html>
-<!--Mudaram a linguagem para português aqui-->
 <html lang="pt">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>X SBE - Semana da Bioengenharia</title>
-    <link rel="stylesheet" href="assets/css/website.css" /> <!--Comentário do ano passado: Já não é preciso //-->
-    <!--Aqui tiveram a ideia certa, de importar o estilo de um ficheiro CSS à parte, mas parece que desistiram
-        da ideia, e fizeram o <style> manualmente a seguir, não sei bem porquê-->
+    <link rel="stylesheet" href="assets/css/website.css" /> 
+    
   </head>
-  <!--Este <style> é gigante, vou só comentar algumas partes que acho interessantes-->
+  
   <style>
     body {
       height: 100%;
       margin: 0;
       padding: 0;
       font-family: "Jaapokki Subtract", sans-serif;
-      background-image: url("assets/images/background.png");
+      background-image: url("assets/images/Background.png");
       background-size: cover;
       background-position: center;
       color: #333;
     }
-
     section {
       padding: 15px;
     }
@@ -38,7 +30,7 @@
       background-color: white;
       top: 100px;
     }
-    /*O texto transparente vem dos atributos -webkit-(...), o Gemini achou fixe, eu também*/
+    
     .join-us {
       width: 500px;
       font-size: 100px;
@@ -46,13 +38,13 @@
       font-weight: bolder;
       font-family: Copperplate, fantasy;
       text-transform: uppercase;
-      background: url("assets/images/background.png") 50% 50%;
+      background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       text-align: center;
     }
-    /*Esta regra é para um elemento que ainda não vimos, já explico mais à frente*/
+    
     .join-us span {
       display: block;
     }
@@ -67,17 +59,15 @@
       margin: 20px 0;
       flex: 1;
     }
-
     .countdown {
       display: flex;
       justify-content: center;
       gap: 20px;
-      background: url("assets/images/background.png") 50% 50%;
+      background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
     }
-
     .countdown div {
       display: flex;
       flex-direction: column;
@@ -94,7 +84,6 @@
       font-family: Copperplate, fantasy;
       text-transform: uppercase;
     }
-
     
     .countdown-1,
     .countdown-2,
@@ -103,21 +92,15 @@
       justify-content: center;
       align-items: center;
     }
-    /*
-    ERRO###################################################################################
-    Deviam ter feito uma classe genérica para estes quatro
-    ERRO###################################################################################
-    */
+    
     .countdown span {
       font-size: 2rem;
       font-weight: bold;
     }
-
     .countdown p {
       margin: 0;
       font-size: 1rem;
     }
-
     .team-section {
       display: flex;
       flex-wrap: wrap;
@@ -138,7 +121,7 @@
       font-weight: bolder;
       font-family: Copperplate, fantasy;
       text-transform: uppercase;
-      background: url("assets/images/background.png") 50% 50%;
+      background: url("assets/images/Background.png") 50% 50%;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
@@ -147,18 +130,12 @@
     .join-us span {
       display: block;
     }
-    /*
-    ERRO###################################################################################
-    Estas últimas duas regras estão repetidas
-    ERRO###################################################################################
-    */
-
+    
     .about-us-main {
       height: auto;
       display: flex;
       flex-direction: column;
     }
-
     .about-us-texto,
     .atividades,
     .meet-the-team {
@@ -175,14 +152,12 @@
       font-size: 80px;
       font-weight: bolder;
       font-family: Copperplate, fantasy;
-      color: #055b61;
+      background: url("assets/images/Background.png") center/cover;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin: 0;
     }
-    /*
-    ERRO###################################################################################
-    Deviam ter feito uma classe genérica para estas três.
-    ERRO###################################################################################
-    */
+    
     .x-sbe-caixa {
       height: auto;
     }
@@ -195,19 +170,12 @@
       height: 200px;
       padding: 15px 0px 15px 0px;
     }
-
     .texto-about-us {
       text-align: justify;
       margin: 10px 0;
       line-height: 25px;
     }
-    /*
-    ERRO###################################################################################
-    Esta classe chama-se texto-about-us e mais acima há outra chamada about-us-texto, super
-    confuso
-    ERRO###################################################################################
-    */
-
+    
     .logo-e-texto-about-us {
       background-color: white;
       display: flex;
@@ -283,11 +251,7 @@
     .pergunta-what-texto p {
       margin: 10px;
     }
-    /*
-    ERRO###################################################################################
-    Mais coisas repetidas
-    ERRO###################################################################################
-    */
+    
     .pergunta-where-main {
       display: flex;
       justify-content: center;
@@ -313,10 +277,13 @@
     .perguntas-about-us {
       font-size: 18px;
       font-weight: 700;
-      color: #055b61;
       font-family: Copperplate, fantasy;
+        background: url("assets/images/Background.png") center/cover;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
-
+  
     .pergunta-who-texto:hover span,
     .pergunta-what-texto:hover span,
     .pergunta-where-texto:hover span {
@@ -351,12 +318,7 @@
       font-size: 85px;
       transition: color, font-size 0.7s;
     }
-    /*
-    ERRO###################################################################################
-    Mais coisas repetidas. Vou parar de fazer comentários sobre repetição de código, acho que
-    já se percebeu
-    ERRO###################################################################################
-    */
+    
     #header-container,
     #footer-container {
       width: 100%;
@@ -368,138 +330,155 @@
       top: 0;
       z-index: 1000;
     }
-
-    /* Comentário do ano passado: Page-specific styles for footer, navigation, etc. */
-  
-  /*Isto é uma media query, uma avaliação do estado de visualização do nosso site. Podem ser feitas sobre diferentes
-  elementos como, por exemplo, o tamanho do ecrã, a orientação do sipositivo, as preferências de browser do utilizador
-  etc...
-  
-    Neste caso, a media query quer saber qual é que é a largura do dispositivo que está a ver o site. Para isso, o tipo
-    da query é "screen" e a característica que está a testar é a largura do ecrã. Ou seja, quando a largura de ecrã for
-    menor que 768 pixeis, por exemplo, num telemóvel, vai mudar a configuração do site.
     
-    Eles não conseguiram implementar isto lá muito bem infelizmente, mas é muito com estas media queries que nós vamos
-    trabalhar.*/
-  @media screen and (max-width: 768px) {
+  
+ 
+@media (max-width: 1200px) {
+  .sec-countdown{
+    position: static;  
+    top: auto;
+    flex-direction: column;   
+    align-items: center;
+    justify-content: center;
+    gap: 0; 
+  }
   .join-us {
-    font-size: 36px;
-    flex-direction: column;
+    position: static; 
+    font-size: 12vw;
+    margin-bottom: 0;
+    width: 100% !important;
+    margin-top: 15px;
   }
-
   .countdown {
-    flex-direction: column;
+    flex-direction: row !important;
   }
-
-  .countdown div {
-    font-size: 30px;
+  .countdown div span{
+    font-size: 15vw;                 
+    line-height: 1;
   }
-
-  .x-sbe-caixa{
-    width:100%;
+  .countdown div p{
+    font-size: 5vw;                 
+    margin: 0;                       
   }
-
   .about-us-texto p,
   .atividades p,
   .meet-the-team p {
-    font-size: 30px;
+    font-size: 35px;
   }
-
-  .logo-e-texto-about-us {
-    flex-direction: column;
-    width:100%;
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-
-  .imagem-logo-about-us {
-    width: 100%;
-  }
-  .pergunta-who,
-  .pergunta-what {
-    width: 40%;
-    height: 100%;
-    flex: 1;
-  }
-
-  .pergunta-where{
-    width: 90%;
-    height: 40%
-  }
-
   .about-us{
-    width:100%;
-    height:50%;
+    height: auto !important;
+    align-items: flex-start !important; 
+    padding: 15px 0 !important;
   }
-  .sec-about-us{
-    width:100%;
+  .logo-e-texto-about-us:hover{
+    height: auto !important;
+    transition: none !important;
+    box-shadow: 2px 2px 20px rgba(0,0,0,.5) !important;
+  }
+  .logo-e-texto-about-us{
+  display: flex;
+  align-items: flex-start; 
+  height: auto;            
+  pointer-events: none;  
+  }
+  .sec-about-us,
+  .pergunta-who-texto,
+  .pergunta-what-texto,
+  .pergunta-where-texto {
+    padding-top: 0 !important;
+    font-size: 18px !important;
   }
   .pergunta-who-texto,
-  .pergunta-what-texto{
-    width: 100%;
-    justify-content:justify;
-    
+  .pergunta-what-texto {
+    width: 65% !important;
+    height: auto !important;
+    pointer-events: none; 
   }
+ 
+  .pergunta-where-texto{
+    width: 80%;
+    height: auto;
+    pointer-events: none;
+  }
+ 
 }
-
-/*Aqui uma query para dispositivos ainda mais pequenos*/
-@media screen and (max-width: 480px) {
+    
+@media (max-width: 768px) {
+  .sec-countdown{
+    position: static;  
+    top: auto;
+    flex-direction: column;   
+    align-items: center;
+    justify-content: center;
+    gap: 0; 
+  }
   .join-us {
-    font-size: 40px;
+    position: static; 
+    margin-bottom: 0;
+    width: 100% !important;
   }
-
-  .countdown div {
-    font-size: 20px;
+  .countdown {
+    flex-direction: row !important;
   }
-
+  .countdown div span{              
+    line-height: 1;
+  }
+  .countdown div p{                 
+    margin: 0;                       
+  }
   .about-us-texto p,
   .atividades p,
   .meet-the-team p {
     font-size: 25px;
   }
-
-  .imagem-logo-about-us {
-    width: 90%;
-  }
-  .pergunta-who,
-  .pergunta-what,
-  .pergunta-where {
-    width: 80%;
-    height: 60%;
-  }
-
   .about-us{
-    width:70%;
-    height:50%;
+    height: auto !important;
+    align-items: flex-start !important; 
+    padding: 15px 0 !important;
   }
+  .logo-e-texto-about-us:hover{
+    height: auto !important;
+    transition: none !important;
+    box-shadow: 2px 2px 20px rgba(0,0,0,.5) !important;
+  }
+  .logo-e-texto-about-us{
+  display: flex;
+  align-items: flex-start; 
+  height: auto;            
+  pointer-events: none;  
+  }
+  .sec-about-us,
   .pergunta-who-texto,
   .pergunta-what-texto,
   .pergunta-where-texto {
-    width: 95%;
-    padding: 10px;
+    padding-top: 0 !important;
+    font-size: 14px !important;
   }
+  .pergunta-who-texto,
+  .pergunta-what-texto {
+    width: 65% !important;
+    height: auto !important;
+    pointer-events: none; 
+  }
+ 
+  .pergunta-where-texto{
+    width: 80%;
+    height: auto;
+    pointer-events: none;
+  }
+
 }
   </style>
-  <body>
-    <!-- Placeholder for the header -->
-    <!--O atributo id é quase igual ao atributo classe, com a diferença que é único a um elemento-->
+  <body>    
     <div id="header-container"></div>
-
     <div class="countdown-e-banner">
       <div class="sec-countdown">
         <div class="texto-countdown">
           <p class="join-us" style="color: #055b61">Join Us In:</p>
         </div>
-        <!--O elemento section é, em termos de código, igual ao div. A diferença está no uso, enquanto
-        o div é usado para fins estilísticos ou para agrupar elementos sem ligação entre si, o section
-        é usado para agrupar elementos conectados entre si, e indica ao navegador essa ligação.
-        Neste caso, é usado para os números do Countdown-->
         <section class="countdown-section" id="countdown-to-event">
           <div class="countdown">
             <div class="countdown-1">
-              <!--O elemento span é um contentor genérico, como o div, mas de linha. A diferença é visual
-              no site, sendo que o div ocupa a largura toda da pagina, enquanto que o span só ocupa o
-              espaço necessário para o seu conteúdo-->
               <span id="days">0</span>
               <p>Days</p>
             </div>
@@ -518,14 +497,15 @@
           </div>
         </section>
       </div>
-      <div style="height: 330px">
-        <img
-          src="assets/images/banner.png"
-          alt=""
-          style="width: 100%; height: 100%"
-        />
-      </div>
-    </div>
+      <div class="banner-container" style="width: 100%; overflow: hidden;">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/images/Banner_mobile.png" type="image/png">
+          <img src="assets/images/Banner_desktop.png" 
+            alt="SBE Banner" 
+            style="width: 100%; height: auto; display: block; object-fit: cover;">
+    </picture>
+  </div>
+</div>
     <div class="about-us-main">
       <div class="about-us-texto">
         <p>ABOUT US</p>
@@ -536,16 +516,14 @@
             <div class="logo-about-us">
               <img
                 class="imagem-logo-about-us"
-                src="assets/images/logoescuro.png"
+                src="assets/images/Logo.png"
                 alt="SBE Semana da Bioengenharia"
+                style="filter: brightness(0) saturate(100%); width: 80%; height: 80%; object-fit: contain;"
               />
             </div>
             <div class="sec-about-us">
               <div>
-                <!--Aqui está um bom exemplo de como usar o span para modificar partes de um texto-->
                 <p class="texto-about-us">
-                  <!--O elemento strong indica ao navegador que um texto ou parte de um texto tem 
-                      importância, e coloca-o a negrito.-->
                   The <span><strong>SBE</strong></span> –
                   <span><strong>Semana da Bioengenharia</strong></span> - is a
                   week-long event dedicated to showcasing the exciting world of
@@ -612,9 +590,8 @@
         </div>
       </div>
     </div>
-
     <div class="atividades">
-      <a href="activities.html">
+      <a href="activitiesAtualizado.html">
         <p>ACTIVITIES</p>
       </a>
     </div>
@@ -623,64 +600,25 @@
         <p>MEET THE TEAM</p>
       </a>
     </div>
-
     <div id="footer-container"></div>
 
-    <!--O elemento script é utilizado para inserir ou importar código executável, normalmente em
-        javascript (JS). É parecido com o <style>, que importa regras CSS, e tal como o <style>,
-        é preferível mantê-lo num ficheiro separado.
-        
-        O Javascipt é uma linguagem orientada a objetos, ou seja, trabalha principalmente com objetos.
-        Objetos são estruturas de dados definidas pelo programador, com diferentes características e 
-        funções específicas a cada objeto. Por exemplo, o programador pode decidir criar um objeto Cat,
-        que tem como características o nome, a cor dos olhos, a cor do pelo,..., e depois dar-lhe funções
-        específicas, como comer ou miar. Há maneiras específicas de trabalhar em JS com objetos:
-          Para criar um objeto novo, usa-se o comando 'new':
-          Cat novoGato = new Cat("Simba","azul","Alaranjado");
-          (Aqui, novoGato é o nome da variável do tipo Cat)
-          
-          Para aceder às suas características ou funções, mete-se um ponto entre o nome da variável e 
-          aquilo a que queremos aceder:
-          string name = novoGato.nome (Aqui vai-se buscar uma característica diretamente)
-          string color = novoGato.getName() (E aqui faz-se o mesmo, mas utilizando uma função intermédia)
-          novoGato.miar()
-          -->
-    <script>
-      /*Fetch é uma API (Aplication Programming Interface), que permite ao JS fazer pedidos através
-      da rede. O navegador envia um pedido (fetch) ao servidor para encontrar o ficheiro "header.html"
-      e recebe determinada resposta. Como estamos a tratar de comunicação entre navegador e servidor,
-      esta resposta pode não ser imediata. Para evitar que o site fique parado à espera, o código 
-      continua a correr até que a resposta chegue, momento em que o motor de JS do navegador executa
-      o método then(), uma função especial que fica em standby até receber os dados que precisa.
-      
-      O método 'then()' trata dessa resposta, guardando-a na variável temporária 'response', e de
-      seguida extrai o texto da resposta com 'response.text()'. Depois, o próximo then() guarda o texto
-      da resposta na variável data, e define o HTML interno do header-container para ser o código do
-      ficheiro header.html, guardado em data*/
-      fetch("headerAtualizado.html")
-        /*A seta (=>) é uma Arrow Function, uma maneira mais curta de escrever funções. O return
-          é implícitamente o que está à direita da seta.*/
+    <script>      
+      fetch("headerAtualizado.html")        
         .then((response) => response.text())
         .then((data) => {
-          /*Aqui o document é um objeto que corresponde a toda a página web, e getElementById é uma
-            função específica do objeto document, que procura um elemento pelo seu id.*/
+          
           const container = document.getElementById("header-container");
     
           // Limpa o que lá estiver antes
           container.innerHTML = ""; 
-
           // Cria um "fragmento" que processa o HTML e EXECUTA os scripts
           const fragment = document.createRange().createContextualFragment(data);
           
           // Insere o fragmento no container
           container.appendChild(fragment);
         })
-
-        /*Este catch() é uma função que deteta erros. Caso encontra algum, corre o código a seguir à
-        seta, que escreve uma mensagem de erro na consola*/
-        .catch((error) => console.error("Error loading header:", error));
       
-      /*O mesmo acontece aqui para o rodapé*/
+      
       fetch("footer.html")
         .then((response) => response.text())
         .then((data) => {
@@ -688,14 +626,14 @@
         })
         .catch((error) => console.error("Error loading header:", error));
       
-      /*Aqui define-se uma função para tratar dos números do Countdown*/
+      
       function updateCountdown() {
-        /*Cria-se um novo objeto date, com a data da SBE, e imediatamente calcula-se a sua timestamp*/
-        const eventDate = new Date("February 17, 2025 10:30:00").getTime();
-        /*Faz-se o mesmo para a data atual,e depois calcula-se o tempo restante*/
+        
+        const eventDate = new Date("May 4, 2026 23:59:59").getTime();
+        
         const now = new Date().getTime();
         const timeLeft = eventDate - now;
-        /*Se já tiver passado da data definida, mete-se o countdown a 0*/
+        
         if (timeLeft <= 0) {
         document.getElementById("days").textContent = 0;
         document.getElementById("hours").textContent = 0;
@@ -703,27 +641,24 @@
         document.getElementById("seconds").textContent = 0;
         return; // Comentário do ano passado: Stop the countdown from updating further
         }
-        /*Aqui calcula-se os valores individuais de dia, hora, minuto e segundo*/
+        
         const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
           (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        /*E atualiza-se o countdown*/
+        
         document.getElementById("days").textContent = days;
         document.getElementById("hours").textContent = hours;
         document.getElementById("minutes").textContent = minutes;
         document.getElementById("seconds").textContent = seconds;
       }
-      /*É um pouco estranho definir uma função no meio do código corrido, mas pronto*/
-
-      /*Depois de definir a função, esta é posta num loop de 1 segundo com o setInterval*/
+      
+      
       //Comentário do ano passado: Atualizar o countdown a cada segundo
       setInterval(updateCountdown, 1000);
-      /*Pôr a função num loop assim causa um lag de 1 segundo até o countdown
-        aparecer. Não é um erro propriamente mas dá para fazer melhor*/
+      
     </script>
   </body>
 </html>
