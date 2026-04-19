@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule - X SBE</title>
+    <title>Schedule - XI SBE</title>
     <style>
         :root {
             --bg-start: #FFF6E8;
@@ -192,6 +192,7 @@
         .qr-section { text-align: center; padding: 40px 20px; }
 
         .download-btn {
+            display: inline-block;
             background: linear-gradient(90deg, #F59E0B, #EA580C);
             color: #fff;
             border: none;
@@ -200,6 +201,7 @@
             cursor: pointer;
             margin-top: 20px;
             font-weight: bold;
+            text-decoration: none;
             box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
             transition: transform 0.22s ease, box-shadow 0.22s ease;
         }
@@ -223,9 +225,9 @@
             <div><strong>To download this schedule, read this QR Code:</strong></div>
             <img src="scheduleqr.png" style="margin: 20px 0;">
             <div><strong>OR</strong></div>
-            <button class="download-btn" onclick="window.location.href='Schedule X SBE.ics'">
+            <a href="assets/images/ScheduleXISBE.png" download="ScheduleXISBE.png" class="download-btn">
                 Click Here
-            </button>
+            </a>
         </div>
     </main>
 
