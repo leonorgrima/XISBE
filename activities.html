@@ -1154,6 +1154,17 @@
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('back-to-top');
         btn.classList.toggle('visible', window.scrollY > 300);
+
+        const footer = document.getElementById('footer-placeholder');
+        if (footer) {
+            const footerTop = footer.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+            if (footerTop < viewportHeight) {
+                btn.style.bottom = (viewportHeight - footerTop + 8) + 'px';
+            } else {
+                btn.style.bottom = '24px';
+            }
+        }
     });
 </script>
 
