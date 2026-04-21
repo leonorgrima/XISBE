@@ -12,6 +12,7 @@
         width: 100%;
         min-height: 80px;
         box-sizing: border-box;
+        font-size: 20px;
     }
 
     .header-container {
@@ -83,6 +84,47 @@
         background-color: white;
         border-radius: 2px;
     }
+
+    .language-toggle {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: 2%;
+      font-family: Arial, sans-serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1;
+      
+    }
+
+    .language-option {
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      color: white;
+      opacity: 1;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .language-option.active {
+      color: #ff9114;
+      font-weight: bold;
+      opacity: 1;
+    }
+
+    .language-option:hover {
+      opacity: 0.8;
+    }
+
+    .language-separator {
+      color: white;
+    }
+
 
     /* MOBILE */
     @media (max-width: 771px) {
@@ -181,7 +223,13 @@
             </div>
         </div>
     </div>
+    <div class="language-toggle">
+        <button class="language-option active" type="button" data-lang="pt">PT</button>
+        <span class="language-separator">/</span>
+        <button class="language-option" type="button" data-lang="en">EN</button>
+    </div>  
 </header>
+
 
 <script>
     (function() {
@@ -199,4 +247,28 @@
             });
         }
     })();
+
+    const languageButtons = document.querySelectorAll('.language-option');
+  let currentLanguage = localStorage.getItem('siteLanguage') || 'en';
+
+  function updateLanguageToggle(lang) {
+    languageButtons.forEach(button => {
+      button.classList.toggle('active', button.dataset.lang === lang);
+    });
+  }
+
+  updateLanguageToggle(currentLanguage);
+
+  languageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      currentLanguage = button.dataset.lang;
+
+      localStorage.setItem('siteLanguage', currentLanguage);
+      updateLanguageToggle(currentLanguage);
+
+      console.log('Selected language:', currentLanguage);
+    });
+  });
+ 
+  
 </script>
