@@ -256,7 +256,7 @@
     });
   }
 
-  function translateHeader(lang) {
+  function translatePage(lang) {
     document.documentElement.lang = lang;
 
     const translatableElements = document.querySelectorAll('[data-i18n]');
@@ -273,11 +273,11 @@
     currentLanguage = lang;
     localStorage.setItem('siteLanguage', currentLanguage);
     updateLanguageToggle(currentLanguage);
-    translateHeader(currentLanguage);
+    translatePage(currentLanguage);
   }
 
   updateLanguageToggle(currentLanguage);
-  translateHeader(currentLanguage);
+  translatePage(currentLanguage);
 
   languageButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -285,5 +285,5 @@
     });
   });
     
-  
+  applyLanguage(currentLanguage); 
 </script>

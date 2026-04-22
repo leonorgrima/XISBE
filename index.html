@@ -515,25 +515,25 @@
     <div class="countdown-e-banner">
       <div class="sec-countdown">
         <div class="texto-countdown">
-          <p class="join-us" style="color: #055b61">Join Us In:</p>
+          <p class="join-us" data-i18n data-en="Join Us In" data-pt="Junta-te a nós em" style="color: #055b61">Join Us In:</p>
         </div>
         <section class="countdown-section" id="countdown-to-event">
           <div class="countdown">
             <div class="countdown-1">
               <span id="days">0</span>
-              <p>Days</p>
+              <p data-i18n data-en="Days" data-pt="Dias">Days</p>
             </div>
             <div class="countdown-2">
               <span id="hours">0</span>
-              <p>Hours</p>
+              <p data-i18n data-en="Hours" data-pt="Horas">Hours</p>
             </div>
             <div class="countdown-3">
               <span id="minutes">0</span>
-              <p>Minutes</p>
+              <p data-i18n data-en="Minutes" data-pt="Minutos">Minutes</p>
             </div>
             <div class="countdown-4">
               <span id="seconds">0</span>
-              <p>Seconds</p>
+              <p data-i18n data-en="Seconds" data-pt="Segundos">Seconds</p>
             </div>
           </div>
         </section>
@@ -549,7 +549,7 @@
 </div>
     <div class="about-us-main">
       <div class="about-us-texto">
-        <p>ABOUT US</p>
+        <p data-i18n data-en="About Us" data-pt="Sobre Nós">About Us</p>
       </div>
       <div class="x-sbe-caixa">
         <div class="about-us">
@@ -565,12 +565,20 @@
             <div class="sec-about-us">
               <div>
                 <p class="texto-about-us">
-                  The <span><strong>SBE</strong></span> –
-                  <span><strong>Semana da Bioengenharia</strong></span> - is a
-                  week-long event dedicated to showcasing the exciting world of
+                  <span><strong>SBE</strong></span> –
+                  <span><strong>Semana da Bioengenharia</strong></span> - 
+                  <span data-i18n data-en="is a week-long event dedicated to showcasing 
+                  the exciting world of Bioengineering. It combines biology, biomechanics,
+                  artificial intelligence, pharmaceuticals and technologies, and innovation 
+                  to address real-world challenges." 
+                  data-pt= "é um evento de uma semana dedicado a mostrar o fascinante 
+                  mundo da Bioengenharia. Combina biologia, biomecânica, inteligência 
+                  artificial, farmacêutica e tecnologias, e inovação para responder a 
+                  desafios do mundo real." >
+                  is a week-long event dedicated to showcasing the exciting world of
                   Bioengineering. It combines biology, biomechanics, artificial
                   intelligence, pharmaceuticals and technologies, and innovation
-                  to address real-world challenges.
+                  to address real-world challenges.</span>
                 </p>
               </div>
             </div>
@@ -581,17 +589,30 @@
         <div class="pergunta-who">
           <div class="pergunta-who-texto">
             <p class="perguntas-about-us">
-              <span style="font-size: 45px">WHO</span> is it for?
+               <span data-i18n data-en=" " data-pt="Para"></span>
+               <span style="font-size: 45px" data-i18n data-en="WHO" data-pt="QUEM">WHO</span>
+               <span data-i18n data-en=" is it for?" data-pt=" é?"> is it for?</span>
             </p>
             <p style="line-height: 25px">
-              The SBE is designed for
-              <span class="aaa">
-                <strong>
-                  students, researchers, and enthusiasts of Bioengineering
-                </strong> </span
-              >. Whether you're curious about groundbreaking discoveries, eager
-              to network, or simply exploring your passion for the field, this
-              event has something for everyone
+               <span data-i18n data-en="SBE is designed for " data-pt="A SBE foi pensada para ">
+               SBE is designed for 
+               </span>
+
+               <span class="aaa">
+                  <strong
+                    data-i18n
+                    data-en="students, researchers, and enthusiasts of Bioengineering"
+                    data-pt="estudantes, investigadores e entusiastas da Bioengenharia">
+                    students, researchers, and enthusiasts of Bioengineering
+                  </strong>
+               </span>
+
+               <span
+                data-i18n
+                data-en=". Whether you're curious about groundbreaking discoveries, eager to network, or simply exploring your passion for the field, this event has something for everyone."
+                data-pt=". Quer tenhas curiosidade sobre descobertas inovadoras, vontade de fazer networking, ou estejas simplesmente a explorar a tua paixão pela área, este evento tem algo para todos.">
+                . Whether you're curious about groundbreaking discoveries, eager to network, or simply exploring your passion for the field, this event has something for everyone.
+               </span>
             </p>
           </div>
         </div>
@@ -633,12 +654,12 @@
     </div>
     <div class="atividades">
       <a href="activities.html">
-        <p>ACTIVITIES</p>
+        <p data-i18n data-en="Activities" data-pt="Atividades">Activities</p>
       </a>
     </div>
     <div class="meet-the-team">
       <a href="meettheteam.html">
-        <p>MEET THE TEAM</p>
+        <p data-i18n data-en="Meet the Team" data-pt="Equipa">MEET THE TEAM</p>
       </a>
     </div>
     <div id="footer-container"></div>
@@ -657,6 +678,12 @@
           
           // Insere o fragmento no container
           container.appendChild(fragment);
+
+          const savedLanguage = localStorage.getItem("siteLanguage") || "en";
+
+          if (typeof applyLanguage === "function") {
+            applyLanguage(savedLanguage);
+          }
         })
       
       
