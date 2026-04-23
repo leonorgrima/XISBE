@@ -12,6 +12,7 @@
         width: 100%;
         min-height: 80px;
         box-sizing: border-box;
+        font-size: 20px;
     }
 
     .header-container {
@@ -96,6 +97,47 @@
         border-radius: 2px;
     }
 
+    .language-toggle {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: 2%;
+      font-family: Arial, sans-serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1;
+      
+    }
+
+    .language-option {
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      color: white;
+      opacity: 1;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .language-option.active {
+      color: #ff9114;
+      font-weight: bold;
+      opacity: 1;
+    }
+
+    .language-option:hover {
+      opacity: 0.8;
+    }
+
+    .language-separator {
+      color: white;
+    }
+
+
     /* MOBILE */
     .auth-user-name {
         color: white;
@@ -179,28 +221,34 @@
         </button>
 
         <nav class="nav-links">
-            <a href="index.html" class="nav-link-style">Home</a>
-            <a href="activities.html" class="nav-link-style">Activities</a>
-            <a href="schedule.html" class="nav-link-style">Schedule</a>
-            <a href="meettheteam.html" class="nav-link-style">Meet the Team</a>
+            <a href="index.html" class="nav-link-style" data-i18n data-en="Home" data-pt="Início">Home</a>
+            <a href="activities.html" class="nav-link-style" data-i18n data-en="Activities" data-pt="Atividades">Activities</a>
+            <a href="schedule.html" class="nav-link-style" data-i18n data-en="Schedule" data-pt="Programa">Schedule</a>
+            <a href="meettheteam.html" class="nav-link-style" data-i18n data-en="Meet the Team" data-pt="Equipa">Meet the Team</a>
+            
         </nav>
 
         <div class="auth-buttons-desktop" id="auth-buttons-desktop"></div>
 
         <div class="nav-content" id="nav-content">
             <nav class="nav-links-mobile">
-                <a href="index.html" class="nav-link-style">Home</a>
-                <a href="activities.html" class="nav-link-style">Activities</a>
-                <a href="schedule.html" class="nav-link-style">Schedule</a>
-                <a href="meettheteam.html" class="nav-link-style">Meet the Team</a>
-               
+                <a href="index.html" class="nav-link-style" data-i18n data-en="Home" data-pt="Início">Home</a>
+                <a href="activities.html" class="nav-link-style" data-i18n data-en="Activities" data-pt="Atividades">Activities</a>
+                <a href="schedule.html" class="nav-link-style" data-i18n data-en="Schedule" data-pt="Programa">Schedule</a>
+                <a href="meettheteam.html" class="nav-link-style" data-i18n data-en="Meet the Team" data-pt="Equipa">Meet the Team</a>
             </nav>
             <div class="auth-buttons-mobile">
                
             </div>
         </div>
     </div>
+    <div class="language-toggle">
+        <button class="language-option active" type="button" data-lang="pt">PT</button>
+        <span class="language-separator">/</span>
+        <button class="language-option" type="button" data-lang="en">EN</button>
+    </div>  
 </header>
+
 
 <script>
     (function() {
@@ -285,4 +333,44 @@
             document.head.appendChild(script);
         }
     })();
+
+    const languageButtons = document.querySelectorAll('.language-option');
+    let currentLanguage = localStorage.getItem('siteLanguage') || 'en'; // sets default language to English if not set
+
+    function updateLanguageToggle(lang) {
+    languageButtons.forEach(button => {
+      button.classList.toggle('active', button.dataset.lang === lang);
+    });
+  }
+
+  function translatePage(lang) {
+    document.documentElement.lang = lang;
+
+    const translatableElements = document.querySelectorAll('[data-i18n]');
+
+    translatableElements.forEach(element => {
+      const translation = element.dataset[lang];
+      if (translation) {
+        element.textContent = translation;
+      }
+    });
+  }
+
+  function applyLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('siteLanguage', currentLanguage);
+    updateLanguageToggle(currentLanguage);
+    translatePage(currentLanguage);
+  }
+
+  updateLanguageToggle(currentLanguage);
+  translatePage(currentLanguage);
+
+  languageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      applyLanguage(button.dataset.lang);
+    });
+  });
+    
+  applyLanguage(currentLanguage); 
 </script>

@@ -393,6 +393,12 @@
                 container.innerHTML = "";
                 const fragment = document.createRange().createContextualFragment(data);
                 container.appendChild(fragment);
+                
+                const savedLanguage = localStorage.getItem("siteLanguage") || "en";
+
+                if (typeof applyLanguage === "function") {
+                    applyLanguage(savedLanguage);
+                }
                 })
                 .catch((error) => console.error("Error loading header:", error));
         }
